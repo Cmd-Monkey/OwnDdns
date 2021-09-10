@@ -1,5 +1,5 @@
 nip=$(dig whoami.akamai.net. @ns1-1.akamaitech.net. +short)
-oip=$(cat *YOUR FOLDER PATH*/ip.txt)
+oip=$(cat ~/OwnDdns/host/ip.txt)
 
 if [ -z "$nip" ];
 then
@@ -11,10 +11,10 @@ if [ $oip != $nip ];
 then
   date +%d-%m-%y/%H:%M:%S
   echo 'IP Changed'
-  echo $nip>*YOUR FOLDER PATH*/ip.txt
-  echo '*YOUR CONFIG FILE*' > *YOUR FOLDER PATH*/site.conf
-  scp *YOUR FOLDER PATH*/site.conf *USER*@*TARGET IP*:~/
-  ssh *USER*@*TARGET IP* 'sudo ./change.sh'
+  echo $nip>~/OwnDdns/host/ip.txt
+  echo '*YOUR CONFIG FILE*' > ~/OwnDdns/host/site.conf
+  scp ~/OwnDdns/host/site.conf *USER*@*TARGET IP*:~/OwnDdns/server/
+  ssh *USER*@*TARGET IP* 'sudo ~/OwnDdns/server/change.sh'
 else
   date +%d-%m-%y/%H:%M:%S
   echo 'No Changes'
