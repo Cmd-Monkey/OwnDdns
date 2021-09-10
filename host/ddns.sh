@@ -12,7 +12,15 @@ then
   date +%d-%m-%y/%H:%M:%S
   echo 'IP Changed'
   echo $nip>~/OwnDdns/host/ip.txt
-  echo '*YOUR CONFIG FILE*' > ~/OwnDdns/host/site.conf
+  echo 'server {
+        server_name foo.com;
+
+        location / {
+            proxy_pass http://'$nip':8096;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }' > ~/OwnDdns/host/site.conf
   scp ~/OwnDdns/host/site.conf *USER*@*TARGET IP*:~/OwnDdns/server/
   ssh *USER*@*TARGET IP* 'sudo ~/OwnDdns/server/change.sh'
 else
