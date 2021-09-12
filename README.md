@@ -3,7 +3,7 @@ This is a simple script to change my nginx config, that's based on a offshore se
 
 
 ## Disclaimer
-I know that this it isn't the safest code, but i'm still learning about the shell script. Any feedback would be appreciated, and sorry about my bad english since i'm not a native speaker.
+I know that this isn't the safest code, but i'm still learning about the shell script. Any feedback would be appreciated, and sorry about my bad english since i'm not a native speaker.
 
 ## Setting Up
 
