@@ -1,3 +1,4 @@
+#!/bin/bash
 nip=$(dig whoami.akamai.net. @ns1-1.akamaitech.net. +short)
 oip=$(cat ~/OwnDdns/host/ip.txt)
 
